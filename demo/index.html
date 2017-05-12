@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>material-button demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../material-button.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+
+    <style>
+      material-button{
+        margin: 5px;
+      }
+      .dark{
+        background-color: #333;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="vertical-section-container centered">
+      <h3>Basic material-button demo</h3>
+      <demo-snippet>
+        <template>
+          <material-button>Flat Button</material-button>
+
+          <material-button dense>dense default</material-button>
+          <material-button dense raised>dense raised</material-button>
+
+          <material-button compact>compact</material-button>
+          <material-button compact raised>compact raised</material-button>
+
+          <material-button primary>default with primary</material-button>
+          <material-button primary raised>raised with primary</material-button>
+
+          <material-button accent>default with accent</material-button>
+          <material-button accent raised>raised with accent</material-button>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container centered">
+      <h3>Disable Ripple</h3>
+      <demo-snippet>
+        <template>
+          <material-button no-ripple>No Ripple</material-button>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container centered">
+      <h3>Disabled</h3>
+      <demo-snippet>
+        <template>
+          <material-button disabled>Flat Button</material-button>
+
+          <material-button disabled dense>dense default</material-button>
+          <material-button disabled dense raised>dense raised</material-button>
+
+          <material-button disabled compact>compact</material-button>
+          <material-button disabled compact raised>compact raised</material-button>
+
+          <material-button disabled primary>default with primary</material-button>
+          <material-button disabled primary raised>raised with primary</material-button>
+
+          <material-button disabled accent>default with accent</material-button>
+          <material-button disabled accent raised>raised with accent</material-button>
+        </template>
+      </demo-snippet>
+    </div>
+
+
+    <div class="vertical-section-container centered">
+      <h3>Dark</h3>
+      <demo-snippet>
+        <template>
+          <div class="dark">
+            <material-button dark>Flat Button</material-button>
+
+            <material-button dark dense>dense default</material-button>
+            <material-button dark dense raised>dense raised</material-button>
+
+            <material-button dark compact>compact</material-button>
+            <material-button dark compact raised>compact raised</material-button>
+
+            <material-button dark primary>default with primary</material-button>
+            <material-button dark primary raised>raised with primary</material-button>
+
+            <material-button dark accent>default with accent</material-button>
+            <material-button dark accent raised>raised with accent</material-button>
+          </template>
+          </div>
+      </demo-snippet>
+    </div>
+
+
+    <div class="vertical-section-container centered">
+      <h3>Dark Disabled</h3>
+      <demo-snippet>
+        <template>
+          <div class="dark ">
+            <material-button disabled dark>Flat Button</material-button>
+
+            <material-button disabled dark dense>dense default</material-button>
+            <material-button disabled dark dense raised>dense raised</material-button>
+
+            <material-button disabled dark compact>compact</material-button>
+            <material-button disabled dark compact raised>compact raised</material-button>
+
+            <material-button disabled dark primary>default with primary</material-button>
+            <material-button disabled dark primary raised>raised with primary</material-button>
+
+            <material-button disabled dark accent>default with accent</material-button>
+            <material-button disabled dark accent raised>raised with accent</material-button>
+          </template>
+          </div>
+      </demo-snippet>
+    </div>
+
+  </body>
+</html>

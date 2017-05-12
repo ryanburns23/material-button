@@ -1,0 +1,131 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<link rel="import" href="material-button-styles.html">
+<link rel="import" href="material-button-scripts.html">
+
+<dom-module id="material-button">
+  <template>
+    <style include="material-button-styles">
+      :host{
+        /* .layout.inline */
+        display: -ms-inline-flexbox;
+        display: -webkit-inline-flex;
+        display: inline-flex;
+        /* .layout.center */
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+
+        --mdc-theme-primary: var(--accent-color, #000);
+        --mdc-theme-accent: var(--accent-color, #69BE28);
+      }
+
+      button{
+        @apply --button-style;
+      }
+    </style>
+
+
+    <div class$="mdc-theme--[[_computeTheme(dark)]]">
+      <button
+        id="button"
+        disabled="[[disabled]]"
+        class$="mdc-button [[_computeButtonClasses(raised, dense, compact, primary, accent, dark)]]">
+
+        <slot></slot>
+
+      </button>
+    </div>
+
+  </template>
+
+  <script>
+    /**
+     * `material-button`
+     *
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class MaterialButton extends Polymer.Element {
+      static get is() { return 'material-button'; }
+      static get properties() {
+        return {
+          // disable button
+          disabled: {
+            type: Boolean,
+            value: false
+          },
+          // Elevates the button and creates a colored background.
+          raised: {
+            type: Boolean,
+            value: false
+          },
+          // Compresses the button text to make it slightly smaller.
+          dense: {
+            type: Boolean,
+            value: false
+          },
+          // Reduces the amount of horizontal padding in the button.
+          compact: {
+            type: Boolean,
+            value: false
+          },
+          // Colors the button with the primary color.
+          primary: {
+            type: Boolean,
+            value: false
+          },
+          // Colors the button with the accent color.
+          accent: {
+            type: Boolean,
+            value: false
+          },
+          // dark button theme
+          dark: {
+            type: Boolean,
+            value: false
+          },
+          noRipple: {
+            type: Boolean,
+            value: false,
+            observer: "_shouldAttachRipple"
+          }
+        };
+      }
+
+      _computeButtonClasses(raised, dense, compact, primary, accent, dark){
+        var classes = [
+          { modifier: "raised",  val: raised },
+          { modifier: "dense", val: dense },
+          { modifier: "compact", val: compact },
+          { modifier: "primary", val: primary },
+          { modifier: "accent", val: accent },
+          { modifier: "theme-dark", val: dark }
+        ];
+        var result = "";
+        // Loop through classes.. Check if they are active
+        for (var i = 0; i < classes.length; i++) {
+          if (classes[i].val)
+            result = result + "mdc-button--" + classes[i].modifier + " ";
+        }
+        return result;
+      }
+      _computeTheme(dark){
+        if (dark) {
+          return "dark";
+        }else {
+          return "light";
+        }
+      }
+      _shouldAttachRipple(noRipple){
+        if (!noRipple) {
+          mdc.ripple.MDCRipple.attachTo(this.$.button);
+        }
+      }
+    }
+
+    window.customElements.define(MaterialButton.is, MaterialButton);
+  </script>
+</dom-module>
